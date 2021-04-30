@@ -51,6 +51,16 @@ app.get('/register', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
+app.get('/protected', (req, res) => {
+    if (req.user) {
+        res.render('protected');
+    } else {
+        res.render('login', {
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+    }
+});
 app.post('/register', (req, res) => {
     const { email, firstName, lastName, password, confirmPassword } = req.body;
 
@@ -114,4 +124,13 @@ app.post('/login', (req, res) => {
             messageClass: 'alert-danger'
         });
     }
+});
+app.use((req, res, next) => {
+    // Get auth token from the cookies
+    const authToken = req.cookies['AuthToken'];
+
+    // Inject the user to the request
+    req.user = authTokens[authToken];
+
+    next();
 });

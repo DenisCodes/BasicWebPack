@@ -2,10 +2,10 @@
   "name": "untitled13",
   "version": "1.0.0",
   "description": "Prerequisites:\r Install Node:\r https://nodejs.org/en/download/",
-  "main": "app.js",
+  "main": "auth.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node auth.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "open": "^8.0.4"
   },

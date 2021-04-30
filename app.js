@@ -15,10 +15,15 @@ const users = [
         password: 'XohImNooBHFR0OVvjcYpJ3NgPQ1qq73WKhHvch0VQtg='
     }
 ];
+const authTokens = {};
+
 const getHashedPassword = (password) => {
     const sha256 = crypto.createHash('sha256');
     const hash = sha256.update(password).digest('base64');
     return hash;
+}
+const generateAuthToken = () => {
+    return crypto.randomBytes(30).toString('hex');
 }
 
 // To support URL-encoded bodies
@@ -42,6 +47,9 @@ app.get('/', function (req, res) {
 });
 app.get('/register', (req, res) => {
     res.render('register');
+});
+app.get('/login', (req, res) => {
+    res.render('login');
 });
 app.post('/register', (req, res) => {
     const { email, firstName, lastName, password, confirmPassword } = req.body;
@@ -77,6 +85,32 @@ app.post('/register', (req, res) => {
     } else {
         res.render('register', {
             message: 'Password does not match.',
+            messageClass: 'alert-danger'
+        });
+    }
+});
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+    const hashedPassword = getHashedPassword(password);
+
+    const user = users.find(u => {
+        return u.email === email && hashedPassword === u.password
+    });
+
+    if (user) {
+        const authToken = generateAuthToken();
+
+        // Store authentication token
+        authTokens[authToken] = user;
+
+        // Setting the auth token in cookies
+        res.cookie('AuthToken', authToken);
+
+        // Redirect user to the protected page
+        res.redirect('/protected');
+    } else {
+        res.render('login', {
+            message: 'Invalid username or password',
             messageClass: 'alert-danger'
         });
     }

@@ -1,3 +1,1 @@
-export default function TestJS() {
-    console.log("Loaded");
-}
+export default function TestJS() { console.log('Loaded'); }

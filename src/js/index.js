@@ -3,10 +3,10 @@ import getJSON from './getJSON';
 
 TestJS();
 getJSON('http://localhost:8000/api/v1/cities',
-    function(err,records){
-    if(err !== null){
+    function(err, records) {
+    if (err !== null) {
         alert('Something went wrong: ' + err);
-    } else{
+    } else {
         let table = document.querySelector("table");
         let data = Object.keys((records.data[0]));
         let dataRecords = records.data;

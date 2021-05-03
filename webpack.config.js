@@ -1,7 +1,22 @@
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
-
 module.exports = {
+    entry: path.resolve(__dirname, './src/index.js'),
+    module: {
+        rules: [
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                use: ["babel-loader", "eslint-loader"]
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['*', '.js']
+    },
+/*
+module.exports = {
+
     // Set the mode to development or production
     mode: 'development',
     watch: true,
@@ -12,6 +27,8 @@ module.exports = {
     entry: {
         index: './src/js/index.js',
     },
+    */
+
     output: {
         path: path.resolve(__dirname, 'docs'),
         filename: 'js/bundle.js',

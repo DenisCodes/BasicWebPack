@@ -9,6 +9,12 @@
     "space-before-function-paren": "off",
     "prefer-destructuring": "off",
     "func-names": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "no-restricted-syntax": "off",
+    "prefer-arrow-callback": "off",
+    "no-alert": "off",
+    "prefer-template": "off",
+    "func-names": "off",
+    "guard-for-in": "off"
   }
 }

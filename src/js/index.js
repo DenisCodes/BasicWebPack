@@ -1,4 +1,4 @@
-import TestJS from './TestJs.js';
+import TestJS from './TestJs';
 import getJSON from './getJSON';
 
 TestJS();

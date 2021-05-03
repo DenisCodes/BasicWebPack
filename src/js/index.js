@@ -7,9 +7,9 @@ getJSON('http://localhost:8000/api/v1/cities',
     if (err !== null) {
         alert('Something went wrong: ' + err);
     } else {
-        let table = document.querySelector("table");
-        let data = Object.keys((records.data[0]));
-        let dataRecords = records.data;
+        const table = document.querySelector("table");
+        const data = Object.keys((records.data[0]));
+        const dataRecords = records.data;
         generateTableHead(table, data);
         generateTable(table, dataRecords);
     }
@@ -17,23 +17,23 @@ getJSON('http://localhost:8000/api/v1/cities',
     console.log(data);
 });
 function generateTableHead(table, data) {
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let key of data) {
-        let th = document.createElement("th");
-        let text = document.createTextNode(key);
+    const thead = table.createTHead();
+    const row = thead.insertRow();
+    for (const key of data) {
+        const th = document.createElement("th");
+        const text = document.createTextNode(key);
         th.appendChild(text);
         row.appendChild(th);
     }
 }
 
 function generateTable(table, data) {
-    for (let element of data) {
-        let row = table.insertRow();
+    for (const element of data) {
+        const row = table.insertRow();
         let key;
         for (key in element) {
-            let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
+            const cell = row.insertCell();
+            const text = document.createTextNode(element[key]);
             cell.appendChild(text);
         }
     }

@@ -8,6 +8,7 @@
     "indent": "off",
     "space-before-function-paren": "off",
     "prefer-destructuring": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "no-undef": "off"
   }
 }

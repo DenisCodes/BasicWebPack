@@ -7,6 +7,12 @@
 const express = require("express");
 const path = require("path");
 
+const expressSession = require("express-session");
+const passport = require("passport");
+const Auth0Strategy = require("passport-auth0");
+
+require("dotenv").config();
+
 /**
  * App Variables
  */
@@ -28,6 +34,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
     res.render("index", { title: "Home" });
+});
+app.get("/user", (req, res) => {
+    res.render("user", { title: "Profile", userProfile: { nickname: "Auth0" } });
 });
 
 /**

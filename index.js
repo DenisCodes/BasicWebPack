@@ -21,6 +21,28 @@ const app = express();
 const port = process.env.PORT || "8000";
 
 /**
+ * Session Configuration (New!)
+ */
+
+const session = {
+    secret: process.env.SESSION_SECRET,
+    cookie: {},
+    resave: false,
+    saveUninitialized: false
+};
+
+if (app.get("env") === "production") {
+    // Serve secure cookies, requires HTTPS
+    session.cookie.secure = true;
+}
+
+/**
+ * Passport Configuration (New!)
+ */
+
+
+
+/**
  *  App Configuration
  */
 

@@ -26,7 +26,7 @@ app.set("view engine", "pug");
  */
 
 app.get("/", (req, res) => {
-    res.status(200).send("WHATABYTE: Food For Devs");
+    res.render("index", { title: "Home" });
 });
 
 /**

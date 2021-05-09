@@ -108,10 +108,13 @@ const secured = (req, res, next) => {
 app.get("/", (req, res) => {
     res.render("index", { title: "Home" });
 });
-app.get("/user", (req, res) => {
-    res.render("user", { title: "Profile", userProfile: { nickname: "Auth0" } });
+app.get("/user", secured, (req, res, next) => {
+    const { _raw, _json, ...userProfile } = req.user;
+    res.render("user", {
+        title: "Profile",
+        userProfile: userProfile
+    });
 });
-
 /**
  * Server Activation
  */

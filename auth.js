@@ -44,6 +44,18 @@ router.get("/callback", (req, res, next) => {
     })(req, res, next);
 });
 
+const users = [
+    {
+        username: 'Matt',
+        password: 'password123admin',
+        role: 'admin'
+    }, {
+        username: 'Denis',
+        password: 'password123member',
+        role: 'member'
+    }
+];
+
 router.get("/logout", (req, res) => {
     req.logOut();
 

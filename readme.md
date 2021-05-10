@@ -1,4 +1,4 @@
-![Home](/img/home.png)
+![Home](/img/Home.png)
 
 ![Signup](/img/Signup.png)
 

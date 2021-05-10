@@ -1,26 +1,21 @@
-Prerequisites:
-Install Node:
-https://nodejs.org/en/download/
+## Project Breakdown
+**Denis + Matt** : Model, basic functions
 
+**Denis** : Auth0 implementation, api rendering, api setup, table generation, JWT connection to database, project breakdown, wbsite screenshots
 
-Install Webpack Globally by running this command on your terminal / command prompt
+**Matt** : JWT implementation, pug api rendering, display syling, website screenshots, api editing, postman JSON validation, images in readmed
 
-npm install --global webpack
+---
+![Home](/img/Home.png)
 
-Webpack Documentation: https://webpack.js.org/
+![Signup](/img/Signup.png)
 
-To Use:
+![Authorization](/img/Authorization.png)
 
-1.  Clone the Repo
-2.  Run npm install
-3.  Run webpack serve to live reload your project, so you can see changes without refreshing the browser
-4.  Once it's running you can go to the dev server and see your changes: http://localhost:9000/
-5.  **run "webpack build" to bundle your code and put it in the docs folder so github pages can serve it**
+![DenisDB](/img/DatabaseDenis.png)
 
-Press Control C to stop the server or the builder
+![MattDb](/img/DatabaseMatt.png)
 
-Turn on github pages and put a link to your site in the readme when you turn in the github repo link.
+![Add to DB](/img/AddToDB.png)
 
-Working site here:
-
-http://www.webizly.com/BasicWebPack/
+![Updated](/img/DatabaseUpdated.png)

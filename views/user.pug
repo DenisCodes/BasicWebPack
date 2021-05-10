@@ -8,6 +8,9 @@ block layout-content
                 h3 Making Us the Best
                 h1 Teammate Profile
             pre.Details=JSON.stringify(userProfile, null, 2)
+        table
+            script
+                include ../docs/js/bundle.js
         div.NavButtons
             a(href="/logout")
                 div.NavButton Log out

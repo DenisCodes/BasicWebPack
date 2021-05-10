@@ -12,9 +12,13 @@
 
 ![Authorization](/img/Authorization.png)
 
+![Email Verification](/img/EmailVerification.png)
+
 ![DenisDB](/img/DatabaseDenis.png)
 
 ![MattDb](/img/DatabaseMatt.png)
+
+![AuthToken](/img/AuthToken.png)
 
 ![Add to DB](/img/AddToDB.png)
 

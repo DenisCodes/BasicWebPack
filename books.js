@@ -1,45 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const mysql = require('mysql');
 
 const app = express();
 
 const accessTokenSecret = 'youraccesstokensecret';
 const refreshTokenSecret = 'yourrefreshtokensecrethere';
 let refreshTokens = [];
+'use strict';
+const open = require("open");
+var cors = require('cors')
+app.use(cors())
+app.use(express.static('docs'));
 
 app.use(bodyParser.json());
 
 app.listen(4000, () => {
     console.log('Books service started on port 4000');
 });
-
-const books = [
-    {
-        "author": "Chinua Achebe",
-        "country": "Nigeria",
-        "language": "English",
-        "pages": 209,
-        "title": "Things Fall Apart",
-        "year": 1958
-    },
-    {
-        "author": "Hans Christian Andersen",
-        "country": "Denmark",
-        "language": "Danish",
-        "pages": 784,
-        "title": "Fairy tales",
-        "year": 1836
-    },
-    {
-        "author": "Dante Alighieri",
-        "country": "Italy",
-        "language": "Italian",
-        "pages": 928,
-        "title": "The Divine Comedy",
-        "year": 1315
-    },
-];
 
 app.get('/books', (req, res) => {
     res.json(books);
@@ -74,10 +53,21 @@ app.post('/books', authenticateJWT, (req, res) => {
     if (role !== 'admin') {
         return res.sendStatus(403);
     }
-
-
     const book = req.body;
-    books.push(book);
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        port: '32000',
+        user: 'root',
+        password: 'root',
+        database: 'citiesData'
+    });
+
+    connection.connect();
+
+    connection.query('INSERT INTO citiesData (id, fldName, fldLat, fldLong, fldCountry, fldabbreviation, fldCapitolStatus, fldPopulation) VALUES (book)', function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+    });
 
     res.send('Book added successfully');
 });

@@ -1,13 +1,13 @@
-![Home](/images/home.png)
+![Home](/img/home.png)
 
-![Signup](/images/Signup.png)
+![Signup](/img/Signup.png)
 
-![Authorization](/images/Authorization.png)
+![Authorization](/img/Authorization.png)
 
-![DenisDB](/images/DatabaseDenis.png)
+![DenisDB](/img/DatabaseDenis.png)
 
-![MattDb](/images/DatabaseMatt.png)
+![MattDb](/img/DatabaseMatt.png)
 
-![Add to DB](/images/AddToDB.png)
+![Add to DB](/img/AddToDB.png)
 
-![Updated](/images/DatabaseUpdated.png)
+![Updated](/img/DatabaseUpdated.png)
